@@ -1,0 +1,158 @@
+.stores-showcase {
+  width: 100%;
+  margin-top: 3rem;
+}
+
+.stores-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.stores-header h2 {
+  font-size: 1.8rem;
+  color: #2C5F2D;
+  margin: 0 0 0.5rem 0;
+  font-weight: bold;
+}
+
+.stores-header p {
+  color: #666;
+  margin: 0;
+  font-size: 1rem;
+}
+
+.stores-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 2rem;
+}
+
+.store-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  animation: scaleIn 0.6s ease forwards;
+  opacity: 0;
+  transform-origin: center;
+  text-align: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1.5rem 1.5rem;
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.store-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.store-header-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: linear-gradient(135deg, #2C5F2D, #D4A574);
+  z-index: 0;
+}
+
+.store-logo {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.store-card h3 {
+  font-size: 1.3rem;
+  color: #2C5F2D;
+  margin: 0 0 0.25rem 0;
+  font-weight: bold;
+}
+
+.store-category {
+  color: #E67E22;
+  margin: 0 0 1rem 0;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.store-stats {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 1rem 0;
+  width: 100%;
+}
+
+.stat {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #666;
+}
+
+.stat .icon {
+  color: #E67E22;
+  font-size: 1rem;
+}
+
+.stat span {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.visit-store-btn {
+  background: linear-gradient(135deg, #2C5F2D, #1a3a1b);
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.visit-store-btn:hover {
+  background: linear-gradient(135deg, #1a3a1b, #0f2410);
+  transform: scale(1.02);
+}
+
+@media (max-width: 768px) {
+  .stores-grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .store-card {
+    padding: 1.5rem 1rem 1rem;
+  }
+
+  .store-logo {
+    font-size: 2rem;
+  }
+
+  .store-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .stores-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
+}
