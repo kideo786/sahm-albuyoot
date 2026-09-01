@@ -1,71 +1,46 @@
 import React, { useState } from 'react';
-import { FaSearch, FaFilter, FaShoppingCart, FaUser, FaBell, FaMenu, FaHome } from 'react-icons/fa';
+import { FaSearch, FaShoppingCart, FaUser, FaBell, FaHome } from 'react-icons/fa';
 import './Navbar.css';
 
 const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [cartCount] = useState(3);
+  const [cartCount] = useState(0);
+  const [notifications] = useState(0);
 
   return (
     <nav className="navbar">
-      {/* Logo Section */}
+      {/* Logo */}
       <div className="navbar-logo">
-        <div className="logo-icon">🏠</div>
+        <span className="logo-icon">🏠</span>
         <div className="logo-text">
           <h1>سهم البيوت</h1>
           <p>Sahm AlBuyoot</p>
         </div>
       </div>
 
-      {/* Search Bar */}
+      {/* Search */}
       <div className="navbar-search">
-        <div className="search-container">
-          <FaSearch className="search-icon" />
-          <input 
-            type="text" 
-            placeholder="ابحث عن أثاث، ديكور، مقاول..." 
-            className="search-input"
-          />
-        </div>
+        <input 
+          type="text" 
+          placeholder="ابحث عن أثاث، ديكور، خدمات..."
+          className="search-input"
+        />
+        <FaSearch className="search-icon" />
       </div>
 
-      {/* Right Section */}
-      <div className="navbar-right">
-        {/* Notifications */}
-        <div className="navbar-icon-group">
-          <FaBell className="navbar-icon" />
-          <span className="notification-badge">2</span>
+      {/* Right Icons */}
+      <div className="navbar-icons">
+        <div className="icon-group">
+          <FaBell className="icon" />
+          {notifications > 0 && <span className="badge">{notifications}</span>}
         </div>
-
-        {/* Cart */}
-        <div className="navbar-icon-group">
-          <FaShoppingCart className="navbar-icon" />
-          <span className="cart-badge">{cartCount}</span>
+        <div className="icon-group">
+          <FaShoppingCart className="icon" />
+          {cartCount > 0 && <span className="badge">{cartCount}</span>}
         </div>
-
-        {/* Profile */}
-        <div className="navbar-icon-group">
-          <FaUser className="navbar-icon" />
+        <div className="icon-group">
+          <FaUser className="icon" />
         </div>
-
-        {/* Mobile Menu */}
-        <button 
-          className="mobile-menu-btn"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-        >
-          <FaMenu />
-        </button>
       </div>
-
-      {/* Mobile Menu */}
-      {isMenuOpen && (
-        <div className="mobile-menu">
-          <a href="/"><FaHome /> الرئيسية</a>
-          <a href="/stores">المتاجر</a>
-          <a href="/products">المنتجات</a>
-          <a href="/profile">حسابي</a>
-        </div>
-      )}
     </nav>
   );
 };
